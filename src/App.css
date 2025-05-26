@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'Authemia'; /* Nombre que usarás en CSS */
+  src: url('./assets/fonts/Authemia Sans.otf') format('opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+#root {
+  font-family: 'Authemia';
+}
+
