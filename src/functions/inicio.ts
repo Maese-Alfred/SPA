@@ -6,6 +6,18 @@ export function setConfiguracion(
   localStorage.setItem("configuracion", JSON.stringify(configuracion));
 }
 
+export function setDiaDescanso(diaDescanso: number): void {
+  const configuracion = getConfiguracion() || { diaDescanso: 0, metodologia: "PPL" };
+  configuracion.diaDescanso = diaDescanso;
+  setConfiguracion(configuracion);
+}
+
+export function setMetodologia(metodologia: "PPL" | "Equilibrado"): void {
+  const configuracion = getConfiguracion() || { diaDescanso: 0, metodologia: "PPL" };
+  configuracion.metodologia = metodologia;
+  setConfiguracion(configuracion);
+}
+
 export function getConfiguracion(): Configuracion | null {
   const configuracion = localStorage.getItem("configuracion");
   if (configuracion) {

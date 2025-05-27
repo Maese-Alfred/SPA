@@ -1,0 +1,36 @@
+.modal-content-configuracion {
+width: 373px;
+height: 119px;
+flex-shrink: 0;
+  border-radius: 21px 0px 21px 21px;
+  border: 3px solid #000;
+  background: #EE7B30;
+  box-shadow: -7px 10px 0px -4px #000;
+   position: relative;
+   display: flex;
+    flex-direction: column;
+}
+
+.boton-configuracion {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  color: #000;
+font-family: Authemia;
+font-size: 26px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+transition: color 0.3s ease;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.boton-configuracion:hover {
+  color:#A2E8DD;
+}
