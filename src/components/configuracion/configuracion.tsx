@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { setDiaDescanso, setConfiguracion, setMetodologia } from "../../functions/inicio";
+import { setDiaDescanso, setConfiguracion, setMetodologia, setNombre } from "../../functions/inicio";
 import './configuracion.css';
 
 function Configuracion() {
@@ -38,9 +38,11 @@ function Configuracion() {
     };
 
     const handleGuardarConfiguracion = () => {
+        setNombre((document.getElementById("nombre") as HTMLInputElement).value);
         setDiaDescanso(diaDescansoSeleccionado);
         setMetodologia(metodologiaSeleccionada);
         setConfiguracion({
+            nombre: (document.getElementById("nombre") as HTMLInputElement).value,
             diaDescanso: diaDescansoSeleccionado,
             metodologia: metodologiaSeleccionada,
         });

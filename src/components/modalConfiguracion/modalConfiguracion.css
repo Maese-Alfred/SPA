@@ -9,6 +9,9 @@ flex-shrink: 0;
    position: relative;
    display: flex;
     flex-direction: column;
+      position: absolute; /* Posicionamiento absoluto dentro de .modal-content */
+  top: 39px; /* Distancia desde la parte superior */
+  right: 48px; /* Distancia desde la parte derecha */
 }
 
 .boton-configuracion {

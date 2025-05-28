@@ -1,18 +1,56 @@
-import Configuracion from './components/configuracion/configuracion'
-import { ModalConfiguracion } from './components/modalConfiguracion/modalConfiguracion'
-import './App.css'
+import Configuracion from "./components/configuracion/configuracion";
+import { ModalConfiguracion } from "./components/modalConfiguracion/modalConfiguracion";
+import VentanaImg from "./components/ventanaImg/ventanaImg";
+import RutinaDiaria from "./components/rutinaDiaria/rutinaDiaria";
+import { getNombre } from "./functions/inicio";
+import { useState } from "react";
+
+import "./App.css";
 function App() {
+  const [mostrarModalConfiguracion, setMostrarModalConfiguracion] = useState(false);
+const abrirModalConfiguracion = () => {
+  setMostrarModalConfiguracion(true);
+};
+
 
   return (
     <>
-      <div>  
-      <h1>Vite + React</h1>
-      <Configuracion />
-      <ModalConfiguracion />
+      <div>
+        <h2 className="titulo-nombre">¡Hola {getNombre()}¡</h2>
+        <button className="boton-abrir-configuracion"
+          onClick={abrirModalConfiguracion}>
+          <svg
+            width="42"
+            height="43"
+            viewBox="0 0 42 43"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 14.0217C19.5165 14.0217 18.0663 14.4603 16.8329 15.2821C15.5994 16.1038 14.638 17.2717 14.0703 18.6382C13.5026 20.0047 13.3541 21.5083 13.6435 22.9589C13.9329 24.4096 14.6473 25.7421 15.6962 26.7879C16.7452 27.8338 18.0817 28.546 19.5367 28.8346C20.9917 29.1231 22.4998 28.975 23.8704 28.409C25.2409 27.843 26.4124 26.8845 27.2366 25.6547C28.0607 24.4249 28.5006 22.9791 28.5006 21.5C28.4947 19.5185 27.7026 17.6198 26.2972 16.2186C24.8918 14.8174 22.9875 14.0277 21 14.0217ZM37.1939 21.5C37.19 22.1988 37.1386 22.8965 37.0401 23.5883L41.6052 27.1517C41.804 27.3154 41.938 27.5442 41.9832 27.7973C42.0284 28.0504 41.9818 28.3113 41.8518 28.5333L37.5333 35.9667C37.402 36.1867 37.1971 36.3536 36.9546 36.4379C36.7121 36.5222 36.4476 36.5185 36.2076 36.4275L30.8399 34.2775C29.7222 35.1357 28.4991 35.8478 27.2002 36.3967L26.3977 42.0783C26.3527 42.3328 26.2206 42.5638 26.0237 42.732C25.8269 42.9001 25.5776 42.9948 25.3185 43H16.6815C16.4271 42.9951 16.1819 42.9043 15.9859 42.7425C15.7899 42.5807 15.6547 42.3574 15.6023 42.1092L14.7998 36.4275C13.4974 35.885 12.2733 35.1717 11.1601 34.3065L5.79243 36.4565C5.55249 36.5476 5.28803 36.5514 5.04556 36.4673C4.80308 36.3831 4.59812 36.2165 4.46669 35.9966L0.148193 28.5642C0.0182047 28.3421 -0.0283643 28.0813 0.0168081 27.8282C0.0619804 27.5751 0.19595 27.3462 0.394777 27.1825L4.95986 23.6192C4.86249 22.9168 4.81113 22.209 4.8061 21.5C4.81 20.8012 4.86137 20.1035 4.95986 19.4117L0.394777 15.8483C0.19595 15.6846 0.0619804 15.4558 0.0168081 15.2027C-0.0283643 14.9496 0.0182047 14.6887 0.148193 14.4667L4.46669 7.0333C4.59797 6.81325 4.80288 6.6464 5.04537 6.56211C5.28785 6.47782 5.55239 6.48148 5.79243 6.57246L11.1601 8.72246C12.2778 7.86434 13.5009 7.15218 14.7998 6.6033L15.6023 0.921696C15.6473 0.6672 15.7794 0.436156 15.9763 0.268044C16.1731 0.0999316 16.4224 0.00518687 16.6815 0H25.3185C25.5729 0.00493708 25.8181 0.0957135 26.0141 0.257511C26.2101 0.419308 26.3453 0.642569 26.3977 0.890848L27.2002 6.57246C28.5043 7.1146 29.7299 7.82791 30.8446 8.69348L36.2076 6.54348C36.4475 6.45242 36.712 6.44862 36.9544 6.53273C37.1969 6.61685 37.4019 6.7835 37.5333 7.00339L41.8518 14.4368C41.9818 14.6588 42.0284 14.9197 41.9832 15.1728C41.938 15.4259 41.804 15.6547 41.6052 15.8184L37.0401 19.3818C37.1375 20.0838 37.1888 20.7913 37.1939 21.5Z"
+              fill="#092A1A"
+            />
+          </svg>
+        </button>
+        <button
+          className="boton-reset"
+          onClick={() => {
+            localStorage.removeItem("configuracion");
+            alert("Variable reiniciada");
+          }}
+        >
+          Reiniciar configuracion
+        </button>
+          <VentanaImg />
+        <RutinaDiaria />
+        <ModalConfiguracion
+        visible={mostrarModalConfiguracion}
+        onClose={() => setMostrarModalConfiguracion(false)}
+        />
+        <Configuracion />
       </div>
     </>
-  )
+  );
 }
 
-
-export default App
+export default App;
